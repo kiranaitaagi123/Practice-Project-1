@@ -1,0 +1,12 @@
+name: Issue Logger
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  log_issue_event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log entire GitHub context
+        run: echo "${{ toJSON(github) }}"
